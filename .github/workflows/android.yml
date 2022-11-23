@@ -9,7 +9,7 @@ jobs:
         with:
           api-level: 29
           force-avd-creation: false
-          emulator-options:
+          emulator-options: -gpu host
           script: adb exec-out screencap -p > screenshot.png
 
       - uses: actions/upload-artifact@v3
