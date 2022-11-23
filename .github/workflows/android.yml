@@ -10,16 +10,16 @@ jobs:
           api-level: 29
           force-avd-creation: true
           emulator-options: -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
-          script: adb exec-out screencap -p > screenshot.png
+          script: adb exec-out screencap -p > screencap.png
 
       - uses: actions/upload-artifact@v3
         with:
-          name: screenshot
-          path: screenshot.png
+          name: screencap
+          path: screencap.png
 
-      - run: screencapture screenshot.jpg
+      - run: screencapture screencapture.jpg
 
       - uses: actions/upload-artifact@v3
         with:
-          name: screenshot
-          path: screenshot.jpg
+          name: screencapture
+          path: screencapture.jpg
