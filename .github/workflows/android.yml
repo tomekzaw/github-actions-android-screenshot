@@ -8,6 +8,8 @@ jobs:
       - uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
+          force-avd-creation: false
+          emulator-options: -gpu swiftshader_indirect
           script: adb exec-out screencap -p > screenshot.png
 
       - uses: actions/upload-artifact@v3
