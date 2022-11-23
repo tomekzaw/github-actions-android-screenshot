@@ -5,14 +5,21 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: 29
-          force-avd-creation: true
-          emulator-options: -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
-          script: adb exec-out screencap -p > screenshot.png
+      - run: screencapture screenshot.jpg
 
       - uses: actions/upload-artifact@v3
         with:
           name: screenshot
-          path: screenshot.png
+          path: screenshot.jpg
+
+      # - uses: reactivecircus/android-emulator-runner@v2
+      #   with:
+      #     api-level: 29
+      #     force-avd-creation: true
+      #     emulator-options: -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+      #     script: adb exec-out screencap -p > screenshot.png
+
+      # - uses: actions/upload-artifact@v3
+      #   with:
+      #     name: screenshot
+      #     path: screenshot.png
