@@ -1,0 +1,16 @@
+on: [push]
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          script: adb exec-out screencap -p > screenshot.png
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: screenshot
+          path: screenshot.png
